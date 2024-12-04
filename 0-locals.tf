@@ -1,6 +1,6 @@
 locals {
   env             = "dev"
-  profile         = "fiap"
+  # profile         = "fiap"
   region          = "us-east-1"
   vpc_id          = "vpc-0a67f18d66d797758"
   security_group_id = "sg-0db5bdc61902e305c"
@@ -12,4 +12,8 @@ locals {
   rds_engine_version = "15.10"
   rds_username = "postgres"
   rds_password = "lFLNzNzl5p*^"
+}
+
+variable "aws_profile" {
+  default = null
 }

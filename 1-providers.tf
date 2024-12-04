@@ -1,6 +1,6 @@
 provider "aws" {
   region  = local.region
-  profile = local.profile
+  profile = var.aws_profile
 }
 
 terraform {
@@ -14,7 +14,7 @@ terraform {
   }
 
   backend "s3" {
-    profile = "fiap"
+    profile = var.aws_profile
     bucket = "terraform-state-rds-buscket"
     region = "us-east-1"
     key = "state/terraform.tfstate"
