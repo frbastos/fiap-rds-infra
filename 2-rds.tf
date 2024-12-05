@@ -33,6 +33,11 @@ resource "aws_db_instance" "lanchonetedb" {
   apply_immediately      = true
 }
 
+resource "aws_rds_instance_state" "test" {
+  identifier = aws_db_instance.lanchonetedb.identifier
+  state      = "stopped"
+}
+
 output "rds_hostname" {
   description = "RDS instance hostname"
   value       = aws_db_instance.lanchonetedb.address
