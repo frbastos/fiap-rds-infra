@@ -33,7 +33,7 @@ resource "aws_db_instance" "lanchonetedb" {
   apply_immediately      = true
 }
 
-resource "aws_rds_instance_state" "test" {
+resource "aws_rds_instance_state" "lanchonetedb" {
   identifier = aws_db_instance.lanchonetedb.identifier
   state      = "stopped"
 }
