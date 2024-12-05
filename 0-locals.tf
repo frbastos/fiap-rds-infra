@@ -13,7 +13,3 @@ locals {
   rds_username = "postgres"
   rds_password = "lFLNzNzl5p*^"
 }
-
-variable "aws_profile" {
-  default = null
-}
