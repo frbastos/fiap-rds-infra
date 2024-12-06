@@ -26,17 +26,17 @@ resource "aws_db_instance" "lanchonetedb" {
   username               = local.rds_username
   password               = local.rds_password
   db_subnet_group_name   = aws_db_subnet_group.lanchonetedb.name
-  vpc_security_group_ids = [local.security_group_id]
+  vpc_security_group_ids = [aws_security_group.rds_sg.id]
   parameter_group_name   = aws_db_parameter_group.lanchonetedb.name
   publicly_accessible    = true
   skip_final_snapshot    = true
   apply_immediately      = true
 }
 
-resource "aws_rds_instance_state" "lanchonetedb" {
-  identifier = aws_db_instance.lanchonetedb.identifier
-  state      = "stopped"
-}
+# resource "aws_rds_instance_state" "lanchonetedb" {
+#   identifier = aws_db_instance.lanchonetedb.identifier
+#   state      = "available" #stopped
+# }
 
 output "rds_hostname" {
   description = "RDS instance hostname"
